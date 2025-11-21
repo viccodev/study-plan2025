@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-container {
+    background-color:aliceblue;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    margin: 20px;
+    border: 1px solid black;
+
+}
