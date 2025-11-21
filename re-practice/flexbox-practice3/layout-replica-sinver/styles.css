@@ -53,7 +53,7 @@
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 100vw;
     justify-content: center;
 }
 .photo-item img {
@@ -61,4 +61,18 @@
     border: 1px solid #fff;
     height: auto;
     display: block;
+}
+.footer {
+    width: 100vw;
+    height: 10vw;
+    border: solid black 1px;
+    display: flex;
+}
+.footer-item {
+    flex: 1;
+    background-color: #D6E9FE;
+}
+.footer-s1,
+.footer-s3 {
+    background-color: #5995DA;
 }
