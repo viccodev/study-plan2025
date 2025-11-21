@@ -45,6 +45,20 @@
     align-self: end;
 }
 
-.grupo-fotos {
-    
+.grupo-fotos{
+    display: flex;
+    width: 100vw;
+}
+.fotos{
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+.photo-item img {
+    width: 30vw;
+    border: 1px solid #fff;
+    height: auto;
+    display: block;
 }
