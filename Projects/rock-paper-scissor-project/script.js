@@ -35,30 +35,53 @@ function getHumanChoice() {
 //
 function playRound(humanChoice, computerChoice){
     if(humanChoice === "rock" && computerChoice === "scissors"){
-        return console.log("Human Wins");
+        return "Human wins";
     } else if (humanChoice === "paper" && computerChoice === "rock"){
-        return console.log("Human Wins");
+        return "Human wins";
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        return console.log("Human wins");
+        return "Human wins";
     } if(computerChoice === "rock" && humanChoice === "scissors"){
-        return console.log("Computer Wins");
+        return "Computer wins";
     } else if (computerChoice === "paper" && humanChoice === "rock"){
-        return console.log("Computer Wins");
+        return "Computer wins";
     } else if (computerChoice === "scissors" && humanChoice === "paper") {
-        return console.log("Computer wins");
+        return "Computer wins";
     } else if (computerChoice === humanChoice) {
-        return console.log("DRAW");
+        return "DRAW";
     } else {
         console.log("bad use");
     }
 }
 
-function playGame(){
-    for(let r = 1; r <= 5; r++){
-        playRound(getHumanChoice(), getComputerChoice());        
-    }
-}
 let humanScore = 0;
 let computerScore = 0;
+let drawScore = 0;
+let totalPartys = 0;
+function playGame(){
+    for(let r = 1; r <= 5; r++){
+        let roundwinner = playRound(getHumanChoice(), getComputerChoice());        
+        if(roundwinner === "Human wins"){
+            humanScore++
+            totalPartys++;
+            console.log("Human wins");
+        } else if (roundwinner === "Computer wins"){
+            computerScore++;
+            totalPartys++;
+            console.log("Computer wins");
+        } else if (roundwinner === "DRAW"){
+            console.log("DRAW");
+            totalPartys++;
+        } else {
+            console.log("Maybe this is not working");
+        }
+    }
+    if(humanScore === computerScore){
+        console.log("the party has ended on DRAW! " + "Human:" + humanScore + " and computer:" + computerScore + " On a total of:" + totalPartys + " Partys! and:" + drawScore + " draws!");
+    } else if(humanScore < computerScore) {
+        console.log("The Computer WIN " + computerScore + "/" + totalPartys);
+    } else if(humanScore > computerScore) {
+        console.log("The Human WINS " + humanScore + "/" + totalPartys);
+    }
+}
 
 
