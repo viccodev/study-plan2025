@@ -6,11 +6,11 @@ Crear una funcion llamada getComputerChoice que de la opcion de la maquina.
 function getComputerChoice() {
     let computerChoice = Math.floor((Math.random() * 3) + 1);
     if (computerChoice === 1) {
-        return console.log("Rock");
+        return "rock";
     } else if (computerChoice === 2) {
-        return console.log("Paper");
+        return "paper";
     } else if (computerChoice === 3) {
-        return console.log("Scissors");
+        return "scissors";
     } else {
         console.log("function now working");
     }
@@ -21,11 +21,11 @@ function getComputerChoice() {
 function getHumanChoice() {
     let humanChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
     if (humanChoice === "rock") {
-        return console.log("rock");
+        return "rock";
     } else if (humanChoice === "paper") {
-        return console.log("paper");
+        return "paper"
     } else if (humanChoice === "scissors") {
-        return console.log("scissors");
+        return "scissors";
     } else {
         console.log("function now working");
     }
@@ -40,19 +40,24 @@ function playRound(humanChoice, computerChoice){
         return console.log("Human Wins");
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         return console.log("Human wins");
-    } else if (humanChoice = computerChoice){
-        return console.log("DRAW");
     } if(computerChoice === "rock" && humanChoice === "scissors"){
         return console.log("Computer Wins");
     } else if (computerChoice === "paper" && humanChoice === "rock"){
         return console.log("Computer Wins");
     } else if (computerChoice === "scissors" && humanChoice === "paper") {
         return console.log("Computer wins");
-    } else{
-
+    } else if (computerChoice === humanChoice) {
+        return console.log("DRAW");
+    } else {
+        console.log("bad use");
     }
 }
 
+function playGame(){
+    for(let r = 1; r <= 5; r++){
+        playRound(getHumanChoice(), getComputerChoice());        
+    }
+}
 let humanScore = 0;
 let computerScore = 0;
 
