@@ -33,33 +33,9 @@ function getHumanChoice() {
 // single round
 // la logica detras de una ronda me tiene pensante y eso que es facil xd, quizas es solo paralisis por analisis. La cosa es que, si el usuario saca una mano favorable, entonces usuario gana, si computerChoice saca una mano favorable entonces gana, como hago eso?. creo que no hay forma "simple" o limpia, sera con muchos if else. No buscare en google, pq quiero hacerlo yo.
 //
-function playRound(humanChoice, computerChoice){
-    if(humanChoice === "rock" && computerChoice === "scissors"){
-        return "Human wins";
-    } else if (humanChoice === "paper" && computerChoice === "rock"){
-        return "Human wins";
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        return "Human wins";
-    } if(computerChoice === "rock" && humanChoice === "scissors"){
-        return "Computer wins";
-    } else if (computerChoice === "paper" && humanChoice === "rock"){
-        return "Computer wins";
-    } else if (computerChoice === "scissors" && humanChoice === "paper") {
-        return "Computer wins";
-    } else if (computerChoice === humanChoice) {
-        return "DRAW";
-    } else {
-        console.log("bad use");
-    }
-}
-
-let humanScore = 0;
-let computerScore = 0;
-let drawScore = 0;
-let totalPartys = 0;
-function playGame(){
-    for(let r = 1; r <= 5; r++){
-        let roundwinner = playRound(getHumanChoice(), getComputerChoice());        
+    // Desde aca
+    /* old code 
+    let roundwinner = playRound(getHumanChoice(), getComputerChoice());        
         if(roundwinner === "Human wins"){
             humanScore++
             totalPartys++;
@@ -75,6 +51,57 @@ function playGame(){
             console.log("Maybe this is not working");
         }
     }
+    */
+function playGame(){
+    let drawScore = 0;
+    let totalPartys = 0;
+    let humanScore = 0;
+    let computerScore = 0;
+    function playRound(humanChoice, computerChoice){
+    if(humanChoice === "rock" && computerChoice === "scissors"){
+        console.log("Human Wins with rock!");
+        humanScore++;
+        totalPartys++;
+        return "Human wins";
+    } else if (humanChoice === "paper" && computerChoice === "rock"){
+        console.log("Humans wins with paper!");
+        humanScore++;
+        totalPartys++;
+        return "Human wins";
+    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        console.log("Human wins with scissors!")
+        humanScore++;
+        totalPartys++;
+        return "Human wins";
+    } else if(computerChoice === "rock" && humanChoice === "scissors"){
+        console.log("Computers wins with rock!");
+        computerScore++;
+        totalPartys++;
+        return "Computer wins";
+    } else if (computerChoice === "paper" && humanChoice === "rock"){
+        console.log("Computer wins with paper!");
+        computerScore++;
+        totalPartys++;
+        return "Computer wins";
+    } else if (computerChoice === "scissors" && humanChoice === "paper") {
+        console.log("Computer wins with scissors!")
+        computerScore++;
+        totalPartys++;
+        return "Computer wins";
+    } else if (computerChoice === humanChoice) {
+        totalPartys++;
+        drawScore++;
+        console.log("DRAW");
+        return "DRAW";
+    } else {
+        console.log("bad use");
+    }
+}
+        for(let r = 1; r <= 5; r++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
     if(humanScore === computerScore){
         console.log("the party has ended on DRAW! " + "Human:" + humanScore + " and computer:" + computerScore + " On a total of:" + totalPartys + " Partys! and:" + drawScore + " draws!");
     } else if(humanScore < computerScore) {
@@ -82,6 +109,5 @@ function playGame(){
     } else if(humanScore > computerScore) {
         console.log("The Human WINS " + humanScore + "/" + totalPartys);
     }
-}
-
+    }
 
