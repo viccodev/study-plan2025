@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <form>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </form>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        let var1, var2, var3;
+        var1 = document.querySelector("ul");
+        var2 = document.querySelector("input");
+        var3 = document.querySelector("button");
+
+        var3.addEventListener("click", itemToShop);
+
+        function itemToShop(event){
+            event.preventDefault();
+                if(var2.value === ""){
+                    alert("Please enter a valid option or i will buy a 38cm vibrator with 8 speed options for you");
+                } else {
+                    const nuevoLi = document.createElement("li");
+                    var1.appendChild(nuevoLi);
+                    
+                    const span = document.createElement("span");
+                    span.textContent = var2.value;
+                    nuevoLi.appendChild(span);
+                    var2.value = "";
+                    var2.focus();
+
+                    const deleteLi = document.createElement("button");
+                    deleteLi.textContent = "Delete option";
+                    nuevoLi.appendChild(deleteLi);
+                    deleteLi.addEventListener("click", e => {
+                      e.target.parentElement.remove()
+                      var2.focus()});
+                    
+
+                    
+                }
+        }
+    </script>
+  </body>
+</html>
